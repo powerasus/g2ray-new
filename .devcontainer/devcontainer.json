@@ -1,0 +1,29 @@
+{
+  "name": "G2Ray",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": "."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": false
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "latest"
+    }
+  },
+  "postCreateCommand": "cd /workspaces/g2ray/.devcontainer && chmod +x install.sh && ./install.sh",
+  "postStartCommand": "cd /workspaces/g2ray/.devcontainer && chmod +x keep-alive.sh && nohup ./keep-alive.sh > /dev/null 2>&1 &",
+  "postAttachCommand": "bash -lc '/app/startup.sh'",
+  "forwardPorts": [443],
+  "portsAttributes": {
+    "443": {
+      "label": "Xray VLESS",
+      "protocol": "http",
+      "onAutoForward": "silent"
+    }
+  },
+  "hostRequirements": {
+    "cpus": 2
+  }
+}
