@@ -54,6 +54,7 @@ If these IPs don't work, try different datacenters or ISPs from your region.
 - If the Codespace fails to start, try creating a new one
 - Check that your GitHub account has Codespaces enabled
 - Ensure you have enough compute hours remaining for the month
+- If the browser page expires, open Firefox Developer Tools on the active Codespace page and run `browser-keepalive.js` from the repository to keep the tab alive.
 - For network issues, try switching proxy protocols in your client app
 
 ## Support the Project
